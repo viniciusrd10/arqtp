@@ -1,0 +1,43 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<configuration>-->
+<!--    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>-->
+<!--    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>-->
+
+<!--    <property name="LOG_PATH" value="/opt/example-rest/logs" />-->
+<!--    <property name="LOG_ARCHIVE" value="example-rest-server" />-->
+
+<!--    <appender name="RollingFile"-->
+<!--              class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOG_PATH}/${LOG_ARCHIVE}.log</file>-->
+<!--        <encoder-->
+<!--                class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+<!--            <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>-->
+<!--        </encoder>-->
+
+<!--        <rollingPolicy-->
+<!--                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            &lt;!&ndash; rollover daily and when the file reaches 10 MegaBytes &ndash;&gt;-->
+<!--            <fileNamePattern>${LOG_PATH}/${LOG_ARCHIVE}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+<!--            <timeBasedFileNamingAndTriggeringPolicy-->
+<!--                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+<!--                <maxFileSize>10MB</maxFileSize>-->
+<!--            </timeBasedFileNamingAndTriggeringPolicy>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
+<!--    <root level="INFO">-->
+<!--        <appender-ref ref="RollingFile"/>-->
+<!--    </root>-->
+
+<!--    <logger name="br.com.original" level="INFO">-->
+<!--        <appender-ref ref="RollingFile" />-->
+<!--    </logger>-->
+
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+    <logger name="br.com.original" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+<!--</configuration>-->
