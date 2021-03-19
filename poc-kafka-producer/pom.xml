@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.original</groupId>
+	<artifactId>poc-kafka-producer</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>poc-kafka-producer</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.9.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+
+	<profiles>
+		<!--Perfil DEV -->
+		<profile>
+			<id>lcl</id>
+			<properties>
+				<activatedProperties>lcl</activatedProperties>
+			</properties>
+
+		</profile>
+
+		<profile>
+			<id>dev</id>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<!--Perfil ACT -->
+		<profile>
+			<id>act</id>
+			<properties>
+				<activatedProperties>act</activatedProperties>
+			</properties>
+		</profile>
+
+		<!--Perfil HML -->
+		<profile>
+			<id>hml</id>
+			<properties>
+				<activatedProperties>hml</activatedProperties>
+			</properties>
+		</profile>
+
+		<!--Perfil PRD -->
+		<profile>
+			<id>prd</id>
+			<properties>
+				<activatedProperties>prd</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<!--Biblioteca de supprte ao Kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Biblioteca de validacao -->
+		<dependency>
+			<groupId>br.com.original.fwcl</groupId>
+			<artifactId>original-validator</artifactId>
+			<version>1.4.2.0</version>
+		</dependency>
+
+		<!--Biblioteca de LOG -->
+		<dependency>
+			<groupId>br.com.original.fwcl</groupId>
+			<artifactId>original-log</artifactId>
+			<version>1.4.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+		</dependency>
+
+		<!--Biblioteca de monitoramento -->
+		<dependency>
+			<groupId>br.com.original.fwcl</groupId>
+			<artifactId>fwcl-health-check-java</artifactId>
+			<version>1.0.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
